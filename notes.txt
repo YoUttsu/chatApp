@@ -1,0 +1,46 @@
+//usually called inside a recieve msg event listener socket.on()
+socket.broadcast.emit(customevent,...args):this will send event to all the connected users expect sender
+
+
+//each connection has unique id associated with it which you can help you send private messages 
+
+//example you pass in the id of recivever in the client emit and when reciever recieves the emit with reciever id then you can do
+
+
+you can also do room chat with this since you can pass in room parameter(id) decided by all the room members and send it to server using socket.emit and then server can recieve and use socket.join(roodid) to join you to that room now what you share will be only sent to that room
+
+
+//you are also allowed to pass client side function as a callback function inside emit from client which can later be called by server and can have effect on client's webbrowser
+
+
+//we can add something like read (blue tick in whatshapp or sent ) by passing in a callback function as a parameter and when server recieves the msg it will run callback "sent" and user will be notified that msg was sent 
+
+and when server emits the event then it will send the callback "recieved" which can be run in client's browser which runs function inside a server which will then again run callback that was given to us named "read" and run that so when reciever recieves msg then the sender will know that its read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for enabling admin ui 
+const {instrument} = require("@socket.io/admin-ui")
+add this 'https://admin.socket.io/', to cors
+instrument(io,{auth:false})
+//now you can connect with admin dashboard with socket server url
